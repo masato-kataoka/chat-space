@@ -1,0 +1,61 @@
+.notification {
+}
+
+.chat-side {
+  list-style: none;
+  width: 300px;
+  &__user {
+    background-color: #253141;
+    // マウスポインタが来たら色を変える処理を入れる
+    &-content {
+    }
+    &-name {
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+    &--new-group {
+    }
+    &--edit-user {
+    }
+  }
+  &__groups {
+    &-list {
+    }
+  }
+  &__group {
+    background-color: #2F3e51;
+    &-name {
+      font-size: 15px;
+      color: #FFFFFF;
+    }
+    &-message {
+      font-size: 11px;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.chat-main {
+  list-style: none;
+//  width: 100vw - 300px;
+  &__header {
+    &--group {
+      &_clearfix {
+      }
+      &-name {
+      }
+      &-edit-btn {
+      }
+    }
+    &-members {
+    }
+  }
+  &__body {
+    &--messages-list {
+    }
+  }
+  &__footer {
+    &-form {
+    }
+  }
+}
