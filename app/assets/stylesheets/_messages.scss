@@ -1,61 +1,69 @@
 .notification {
 }
 
-.chat-side {
-  list-style: none;
-  width: 300px;
-  &__user {
+.chat {
+  &-side {
+    list-style: none;
     background-color: #253141;
-    // マウスポインタが来たら色を変える処理を入れる
-    &-content {
+    width: 300px;
+  }
+  &-user {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-right: 20px;
+    &__actions {
     }
-    &-name {
-      font-size: 16px;
-      color: #FFFFFF;
-    }
-    &--new-group {
-    }
-    &--edit-user {
+    &__action {
     }
   }
-  &__groups {
-    &-list {
-    }
+
+  &-groups {
+    background-color: #2f3e51;
   }
-  &__group {
-    background-color: #2F3e51;
-    &-name {
+  &-group {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    &__link {
+    }
+    &__name {
+      padding-top: 20px;
+      padding-bottom: 5px;
       font-size: 15px;
       color: #FFFFFF;
     }
-    &-message {
+    &__message {
       font-size: 11px;
       color: #FFFFFF;
+      padding-bottom: 20px;
     }
   }
-}
-
-.chat-main {
-  list-style: none;
-//  width: 100vw - 300px;
-  &__header {
-    &--group {
-      &_clearfix {
+  &-main {
+    list-style: none;
+    width: calc(100vw - 300);
+  }
+  &-header {
+    &--left {
+      margin-top: 35px;
+    }
+    &__users {
+    }
+    &__user{
+    }
+      &--right {
       }
-      &-name {
+      &__edit-btn {
       }
-      &-edit-btn {
+      &-members {
       }
     }
-    &-members {
+    &__body {
+      &--messages-list {
+      }
+    }
+    &__footer {
+      &-form {
+      }
     }
   }
-  &__body {
-    &--messages-list {
-    }
-  }
-  &__footer {
-    &-form {
-    }
-  }
-}

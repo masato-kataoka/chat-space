@@ -1,40 +1,42 @@
 %html
   %head
   %body
-    .notification
-
-    .chat-side
-      .chat-side__user
-        .chat-side__user-content
-          .chat-side__user-name
+    .layout-notification
+      .chat
+        .chat-side
+          .chat-user
             masato
-            %a{ :class => 'chat-side__user--new-group', :href => '/groups/new' }
-              %i{ :class => 'fa fa-pencil-square-o' }
-            %a{ :class => 'chat-side__user--edit-user', :href => '/users/edit' }
-              %i{ :class => 'fa fa-cog' }
+            .chat-user__actions
+              %a{ :class => 'chat-user__action', :href => '/chat_grouops/new'}
+                %i{ :class => 'fa fa-pencil-square-o' }
+              %a{ :class => 'chat-user__action', :href => '/users/edit' }
+                %i{ :class => 'fa fa-cog' }
+          %ul{ :class => 'chat-groups' }
+            %li{ :class => 'chat-group'}
+              %a{ :class => 'chat-group__link', :href => '/chat-groups/18082/messages' }
+                %p{ :class => 'chat-group__name' }テストチャット
+                %p{ :class => 'chat-group__message' }
+                  まだメッセージはありません
 
-      .chat-side__groups
-        .chat-side__groups-list
-          %a{ :href => '/groups/568/messages' }
-            .chat-side__group
-              .chat-side__group-name
+          .chat-main
+            .chat-header
+              .chat-header--left
                 テストチャット
-              .chat-side__group-message
-                またメッセージはありません
+                %p{ :class => 'chat-header__users' }
+                  Members:
+                  %span{ :class => 'chat-header__user' }masato
+              .chat-header--right
+                %a{ :class => 'chat-header__edit-btn', :href => '/chat_groups/18082/edit' }Edit
 
-    .chat-main
-      .chat-main__header
-        .chat-main__header--group_clearfix
-        .chat-main__header--group-name
-          テストチャット
-        %a{ :class => 'chat-main__header--group-edit-btn', :href => "/groups/568/edit" }edit
-        .chat-main__header-members
-        MEMBER:
-        %i
-          masato
+            .chat-body
+              %ul{ :class => 'chat-messages'}
 
-      .chat-main__body
-        .chat-main__body--messages-list
-      .chat-main__footer
-        %form{ :class => 'chat-main__footer-form', :id => 'new_message', :enctype => 'multipart/form-data', :action => '/groups/568/messages', :accept-charset => 'UTF-8', :method => 'post'}
-          %input{ :name => 'utf8', :type => 'hidden', :value => '&#x2713' }
+            .chat-footer
+              %form{ :class => 'new_message', :id => 'new_message', :enctype => 'multipart/form-data', :action => '/chat_groups/18082/messages', :accept-charset => 'UTF-8', :method => 'post'}
+                %input{ :name => 'utf8', :type => 'hidden', :value => '&#x2713' }
+                .chat-footer__body
+                  %textarea{ :row => '1', :placeholder => 'type a message', :name => 'message[body]', :id => 'message_body'}
+                  %label{ :class => 'chat-footer__file'}
+                    %input{ :type => 'file', :name => 'message[image]', :id => 'message_image'}
+                    %i{ :class => 'fa fa-image'}
+                %input{ :type => 'submit', :name => 'commit', :value => 'Send', :data-disable-with => 'Send'}
