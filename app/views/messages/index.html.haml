@@ -18,25 +18,25 @@
                 %p{ :class => 'chat-group__message' }
                   まだメッセージはありません
 
-          .chat-main
-            .chat-header
-              .chat-header--left
-                テストチャット
-                %p{ :class => 'chat-header__users' }
-                  Members:
-                  %span{ :class => 'chat-header__user' }masato
-              .chat-header--right
-                %a{ :class => 'chat-header__edit-btn', :href => '/chat_groups/18082/edit' }Edit
+        .chat-main
+          .chat-header
+            .chat-header--left
+              テストチャット
+              %p{ :class => 'chat-header__users' }
+                Members:
+                %span{ :class => 'chat-header__user' }masato
+            .chat-header--right
+              %a{ :class => 'chat-header__edit-btn', :href => '/chat_groups/18082/edit' }Edit
 
-            .chat-body
-              %ul{ :class => 'chat-messages'}
+          .chat-body
+            %ul{ :class => 'chat-messages'}
 
-            .chat-footer
-              %form{ :class => 'new_message', :id => 'new_message', :enctype => 'multipart/form-data', :action => '/chat_groups/18082/messages', :accept-charset => 'UTF-8', :method => 'post'}
-                %input{ :name => 'utf8', :type => 'hidden', :value => '&#x2713' }
-                .chat-footer__body
-                  %textarea{ :row => '1', :placeholder => 'type a message', :name => 'message[body]', :id => 'message_body'}
-                  %label{ :class => 'chat-footer__file'}
-                    %input{ :type => 'file', :name => 'message[image]', :id => 'message_image'}
-                    %i{ :class => 'fa fa-image'}
-                %input{ :type => 'submit', :name => 'commit', :value => 'Send', :data-disable-with => 'Send'}
+          .chat-footer
+            %form{ :class => 'new_message', :id => 'new_message', :enctype => 'multipart/form-data', :action => '/chat_groups/18082/messages', :accept-charset => 'UTF-8', :method => 'post'}
+              %input{ :name => 'utf8', :type => 'hidden', :value => '&#x2713' }
+              .chat-footer__body
+                %textarea{ :row => '1', :placeholder => 'type a message', :name => 'message[body]', :id => 'message_body'}
+                %label{ :class => 'chat-footer__file'}
+                  %input{ :type => 'file', :name => 'message[image]', :id => 'message_image'}
+                  %i{ :class => 'fa fa-image'}
+              %input{ :type => 'submit', :name => 'commit', :value => 'Send', :data-disable-with => 'Send'}
