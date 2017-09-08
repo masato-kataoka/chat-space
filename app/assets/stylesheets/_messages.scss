@@ -11,12 +11,28 @@
 .chat {
   &-footer {
     background-color: #AAAAAA;
-    margin-left: 40px;
     position: absolute;
+    left: 300px;
     bottom: 0px;
+    right: 0px;
     &__body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
+      //resize: horizontal;
+      //max-height: 50px;
+      display: inline-block;
     }
     &__file {
     }
   }
+}
+.textarea#messagebody {
+  resize: horizontal;
+}
+
+.input {
+  color: #FFFFFF;
+  padding-right: 40px;
 }
