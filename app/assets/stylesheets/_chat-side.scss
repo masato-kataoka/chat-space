@@ -3,6 +3,7 @@
     list-style: none;
     background-color: #253141;
     float: left;
+    height: 80px;
     width: 300px;
   }
   &-user {
@@ -23,7 +24,7 @@
   }
   &-groups {
     background-color: #2f3e51;
-    height: 100%;
+    margin-bottom: 0px;
   }
   &-group {
     margin-top: 20px;
@@ -38,11 +39,6 @@
       padding-bottom: 5px;
       font-size: 15px;
       color: #FFFFFF;
-    }
-    &__message {
-      font-size: 11px;
-      color: #FFFFFF;
-      padding-bottom: 20px;
     }
   }
 }
