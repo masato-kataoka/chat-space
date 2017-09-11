@@ -1,7 +1,7 @@
 .chat {
   &-main {
     list-style: none;
-    float: right;
+    float: left;
     width: calc(100vw - 315px);
   }
 
@@ -9,17 +9,23 @@
     height: 100px;
     border-bottom: 1px solid;
     border-color: #eeeeee;
+    //margin-left: 40px;
+    //margin-right: 40px;
     &--left {
       float: left;
       padding-top: 35px;
-//      margin-bottom: 15px;
-      margin-left: 40px;
+      padding-bottom: 15px;
+//      margin-left: 40px;
+      padding-left: 40px;
+      //margin-right: auto;
       font-size: 20px;
       color: #333333;
+
     }
     &__users {
       font-size: 12px;
       color: #999999;
+      padding-top: 10px;
     }
     &__user{
     }
@@ -43,6 +49,7 @@
   &-body {
     height: calc(100vh - 88px);
     background-color: #F8F8F8;
+    //margin-left: 40px;
   }
   &-messages {
   }
@@ -55,8 +62,10 @@
       float: left;
       font-size: 16px;
       font-weight: bold;
+      padding-right: 10px;
       color: #434A54;
       display: inline-block;
+      padding-bottom: 10px;
     }
     &__time {
       font-size: 12px;
