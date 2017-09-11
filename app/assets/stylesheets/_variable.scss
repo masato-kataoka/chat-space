@@ -1,0 +1,34 @@
+// ChatSpaceで使われる色を変数化
+$thick-blue: #253141;
+$light-blue: #2f3e51;
+$sky-blue: #38AEF0;
+$white: #FFFFFF;
+$gray: #AAAAAA;
+
+// 左カラム幅
+$side-width: 300px;
+
+// Editボタン
+@mixin edit-button {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 40px;
+  line-height: 40px;
+  color: #38AEF0;
+  text-decoration: none;
+}
+
+// Sendボタン
+@mixin send-button {
+  margin-left: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 40px;
+  float: right;
+  height: 50px;
+  line-height: 50px;
+  color: $white;
+  border: 2px solid;
+  border-color: $sky-blue;
+  background-color: $sky-blue;
+}

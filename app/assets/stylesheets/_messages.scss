@@ -4,8 +4,8 @@
 
 .chat {
   &-footer {
-    background-color: #AAAAAA;
-    width: calc(100vw - 300px);
+    background-color: $gray;
+    width: calc(100vw - $side-width);
     position: fixed;
     bottom: 0px;
 //    margin-left: 40px;
@@ -50,15 +50,5 @@ input[type=file] {
 }
 
 input[type=submit] {
-  margin-left: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-right: 40px;
-  float: right;
-  height: 50px;
-  line-height: 50px;
-  color: #FFFFFF;
-  border: 2px solid;
-  border-color: #38AEF0;
-  background-color: #38AEF0;
+  @include send-button;
 }
