@@ -35,6 +35,9 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 
+# For divise (tech-master EXPERT)
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
