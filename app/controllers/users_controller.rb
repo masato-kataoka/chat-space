@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_find
+  before_action :set_user_find
 
   def edit
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password)
   end
 
-  def user_find
+  def set_user_find
     @user = User.find(params[:id])
   end
 end
