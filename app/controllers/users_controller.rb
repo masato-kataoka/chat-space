@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user_find
+  before_action :user_find
 
   def edit
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(set_user_params)
       # 更新に成功したときの処理
     else
       render 'edit'
@@ -14,11 +14,11 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
+  def set_user_params
     params.require(:user).permit(:name, :email, :password)
   end
 
-  def set_user_find
+  def user_find
     @user = User.find(params[:id])
   end
 end
