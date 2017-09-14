@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
   def update
     @user = User.find(params[:id])
-#    if @user.update_attributes(params.require(:user).permit(:name, :email))
     if @user.update_attributes(user_params)
       # 更新に成功したときの処理
     else
