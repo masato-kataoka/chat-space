@@ -37,11 +37,10 @@
                 %p.chat-message__body テスト
 
           .chat-footer
-            %form#new_message.new_message{ :enctype => 'multipart/form-data', :action => '/chat_groups/18082/messages', :accept-charset => 'UTF-8', :method => 'post'}
-              %input{ :name => 'utf8', :type => 'hidden', :value => '&#x2713' }
+            = form_for(@message, url: {controller: 'messages', action: 'index'}) do |f|
               .chat-footer__body
-                %textarea#message_body{ :row => '1', :placeholder => 'type a message', :name => 'message[body]'}
+                = f.text_area(:body, placeholder: 'type a message')
                 %label.chat-footer__file
-                  %input#message_image{ :type => 'file', :name => 'message[image]' }
+                  = f.file_field :image
                   %i.fa.fa-image
-                %input{ :type => 'submit', :name => 'commit', :value => 'Send', :data-disable-with => 'Send'}
+                  = f.submit :Send
