@@ -37,6 +37,7 @@ gem 'font-awesome-rails'
 
 # For divise (tech-master EXPERT)
 gem 'devise'
+gem 'devise-i18n'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

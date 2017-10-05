@@ -1,0 +1,10 @@
+.alert {
+  color: $white;
+  text-align: center;
+  &__error {
+    background-color: $red;
+  }
+  &__notice {
+    background-color: $sky-blue;
+  }
+}
