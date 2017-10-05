@@ -1,10 +1,10 @@
 .alert {
   color: $white;
   text-align: center;
-  &__error {
+  &-error {
     background-color: $red;
   }
-  &__notice {
+  &-notice {
     background-color: $sky-blue;
   }
 }
