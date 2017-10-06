@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:email]
   has_many :user_group
-  has_many :group, through: :user_group, source: :group
+  has_many :group, through: :user_group
 end
