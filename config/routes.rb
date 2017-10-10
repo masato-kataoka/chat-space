@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get '/chat_groups/new', to: 'group#new'
   post '/chat_groups', to: 'group#create'
+  get '/chat_groups/:id/edit', to: 'group#edit'
   get '/chat_groups/:id/messages', to: 'group#index'
   post '/chat_groups/:id/messages', to: 'group#update'
   devise_for :users
