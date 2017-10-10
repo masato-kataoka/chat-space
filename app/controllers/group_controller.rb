@@ -7,7 +7,7 @@ class GroupController < ApplicationController
   end
 
   def index
-    @group = Group.new
+    @group = Group.find(params[:group_id])
   end
 
   def update
