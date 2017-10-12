@@ -1,11 +1,12 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for(@group, url: {controller: 'group', action: 'create'}, html: {id: 'new_chat_group', class: 'new_chat_group'}) do |f|
-    .chat-group-form__errors
-      %h2
-        1件のエラーが発生しました。
-        %ul
-          %li エラーです
+    - if @group.errors.presence
+      .chat-group-form__errors
+        %h2
+          1件のエラーが発生しました。
+          %ul
+            %li エラーです
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{:for => "chat_group_name"} グループ名
