@@ -1,9 +1,13 @@
 class GroupController < ApplicationController
 
   def new
+    @group = Group.new
   end
 
   def create
+    @group = Group.new(set_group_params)
+    @group.save
+    redirect_to root_path
   end
 
   def index
@@ -21,7 +25,6 @@ class GroupController < ApplicationController
   private
 
   def set_group_params
-    params.require(:groups).permit(:name)
+    params.require(:group).permit(:name, user_ids:[])
   end
-
 end
