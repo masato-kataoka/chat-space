@@ -6,8 +6,12 @@ class GroupController < ApplicationController
 
   def create
     @group = Group.new(set_group_params)
-    @group.save
-    redirect_to root_path
+    if @group.save
+      flash[:notice] = 'グループを作成しました'
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def index
