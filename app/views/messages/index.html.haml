@@ -10,9 +10,11 @@
             %i.fa.fa-cog
       %ul.chat-groups
         %li.chat-group
-          = link_to '/chat-groups/18082/messages', class: 'chat-group__link' do
-            %p.chat-group__name テストチャット
-            %p.chat-group__message まだメッセージはありません
+          - @group.each do |user_group|
+            = link_to '/group/1/messages', class: 'chat-group__link' do
+              %p.chat-group__name
+                = user_group.name
+              %p.chat-group__message まだメッセージはありません
 
   .chat-main
     .chat-header.clearfix
