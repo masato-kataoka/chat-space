@@ -15,10 +15,12 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.find(params[:id])
   end
 
   def index
-    @group = Group.find(params[:group_id])
+    @message = Message.new
+    @group = current_user.group
   end
 
   def update
