@@ -1,4 +1,4 @@
-class GroupController < ApplicationController
+class GroupsController < ApplicationController
 
   def new
     @group = Group.new
@@ -12,6 +12,9 @@ class GroupController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def index

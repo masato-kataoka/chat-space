@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for(@group, url: {controller: 'group', action: 'create'}, html: {id: 'new_chat_group', class: 'new_chat_group'}) do |f|
+  = form_for @group do |f|
     - if @group.errors.presence
       .chat-group-form__errors
         %h2
@@ -9,7 +9,7 @@
             %li エラーです
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_name"} グループ名
+        = f.label :name, "グループ名", for: 'chat_group_name', class: 'chat-group-form__label'
       .chat-group-form__field--right
         = f.text_field(:name, id: 'name', placeholder: 'グループ名を入力してください', class: 'chat-group-form__input', id: 'chat_group_name')
     .chat-group-form__field.clearfix
@@ -26,7 +26,7 @@
         </div>
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+        = f.label :name, "チャットメンバー", for: 'chat_group_チャットメンバー', class: 'chat-group-form__label'
       .chat-group-form__field--right
         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
         = f.collection_check_boxes :user_ids, User.all, :id, :name
