@@ -24,10 +24,11 @@ class GroupsController < ApplicationController
   end
 
   def update
+    @group = Group.find(params[:id])
     if @group.update_attributes(set_group_params)
-      # 更新に成功したときの処理
+      redirect_to root_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
