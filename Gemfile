@@ -40,6 +40,10 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'devise-i18n'
 
+# For message (tech-master EXPERT)
+gem 'carrierwave'
+gem 'mini_magick'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

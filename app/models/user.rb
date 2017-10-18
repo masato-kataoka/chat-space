@@ -6,4 +6,7 @@ class User < ApplicationRecord
          :authentication_keys => [:email]
   has_many :user_group
   has_many :group, through: :user_group
+
+  has_many :message
+  belongs_to :user
 end

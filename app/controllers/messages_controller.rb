@@ -6,4 +6,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params.require(:message).permit(:title, :body))
   end
+  def new
+  end
+  def edit
+  end
+  def update
+  end
 end
