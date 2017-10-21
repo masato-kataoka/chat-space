@@ -1,0 +1,29 @@
+= render 'groups/side'
+.chat-main
+  .chat-header.clearfix
+    .chat-header--left
+      = @group.name
+      %p.chat-header__users
+        Members:
+        %span.chat-header__user
+        - @users.each do |user|
+          = user
+    .chat-header--right
+      = link_to 'Edit', edit_group_url(@group.id), class: 'chat-header__edit-btn'
+
+  .chat-body
+    %ul.chat-messages
+      %li.chat-message
+        .chat-message__header.clearfix
+          %p.chat-message__name masato
+          %p.chat-message__time 2017/09/08 00:11:22
+        %p.chat-message__body テスト
+
+  .chat-footer
+    = form_for @message do |f|
+      .chat-footer__body
+        = f.text_area(:body, id: 'message_body', placeholder: 'type a message')
+        %label.chat-footer__file
+          = f.file_field :image
+          %i.fa.fa-image
+        = f.submit :Send

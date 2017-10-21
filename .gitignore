@@ -16,4 +16,7 @@
 /node_modules
 /yarn-error.log
 
+# image files
+/app/uploads/*
+
 .byebug_history
