@@ -15,12 +15,13 @@
     %ul.chat-messages
       %li.chat-message
         .chat-message__header.clearfix
-          %p.chat-message__name masato
+          %p.chat-message__name
+            - @message.body
           %p.chat-message__time 2017/09/08 00:11:22
         %p.chat-message__body テスト
 
   .chat-footer
-    = form_for @message do |f|
+    = form_for [@group, @message] do |f|
       .chat-footer__body
         = f.text_area(:body, id: 'message_body', placeholder: 'type a message')
         %label.chat-footer__file

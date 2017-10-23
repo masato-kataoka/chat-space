@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
     @group = current_user.group
   end
   def create
-    @message = Message.new(params.require(:message).permit(:body, :image))
+    binding.pry
+    Message.create(body: params.require(:message)[:body], image: params.require(:message)[:image], group_id: params[:group_id], user_id: current_user.id)
   end
   def new
     @groups = current_user.groups
