@@ -15,10 +15,9 @@
     %ul.chat-messages
       %li.chat-message
         .chat-message__header.clearfix
-          %p.chat-message__name
-            - @message.body
-          %p.chat-message__time 2017/09/08 00:11:22
-        %p.chat-message__body テスト
+          %p.chat-message__name テスト
+          %p.chat-message__time XXXX
+          %p.chat-message__body aaaa
 
   .chat-footer
     = form_for [@group, @message] do |f|

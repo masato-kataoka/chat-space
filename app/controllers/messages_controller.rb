@@ -8,9 +8,11 @@ class MessagesController < ApplicationController
     Message.create(body: params.require(:message)[:body], image: params.require(:message)[:image], group_id: params[:group_id], user_id: current_user.id)
   end
   def new
+#    binding.pry
     @groups = current_user.groups
     @group = Group.find(params[:group_id])
     @users = @group.users.map(&:name)
+    @messages = current_user.messages.where(group_id: params[:group_id])
     @message = Message.new
   end
   def edit
