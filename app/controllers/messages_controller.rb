@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     group_find
     @groups = current_user.groups
     @users = @group.users.map(&:name)
-    @messages = current_user.messages.where(group_id: params[:group_id])
+    @messages = Message.where(group_id: params[:group_id])
     @message = Message.new
   end
   def edit
