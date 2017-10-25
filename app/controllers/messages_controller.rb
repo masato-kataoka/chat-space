@@ -8,8 +8,8 @@ class MessagesController < ApplicationController
     redirect_to new_group_messages_path
   end
   def new
+    group_find
     @groups = current_user.groups
-    @group = Group.find(params[:group_id])
     @users = @group.users.map(&:name)
     @messages = current_user.messages.where(group_id: params[:group_id])
     @message = Message.new
@@ -20,6 +20,11 @@ class MessagesController < ApplicationController
     @message = Group.find(params[:id])
   end
   def show
+    group_find
+  end
+
+  private
+  def group_find
     @group = Group.find(params[:group_id])
   end
 end
