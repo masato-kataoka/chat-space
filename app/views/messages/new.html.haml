@@ -6,8 +6,7 @@
       %p.chat-header__users
         Members:
         %span.chat-header__user
-        - @users.each do |user|
-          = user
+          = @group.users.pluck(:name).join(' ')
     .chat-header--right
       = link_to 'Edit', edit_group_url(@group), class: 'chat-header__edit-btn'
 
