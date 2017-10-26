@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
 
   def index
     @message = Message.new
-    @group = current_user.group
+    @groups = current_user.groups
   end
 
   def update
@@ -31,7 +31,8 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
-
+  def show
+  end
   private
 
   def set_group_params
