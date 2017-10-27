@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :group_find
   before_action :new_message, only: [:index, :new]
-  before_action :current_user_groups, only: [:index, :new]
+  before_action :current_user_groups, only: [:create, :index, :new]
 
   def index
   end
@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to new_group_messages_path
     else
+      flash.now[:alert] = 'メッセージを入力してください'
       render :new
     end
   end
