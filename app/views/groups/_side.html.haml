@@ -13,4 +13,8 @@
           = link_to new_group_messages_path(user_group.id), class: 'chat-group__link' do
             %p.chat-group__name
               = user_group.name
-            %p.chat-group__message まだメッセージはありません
+            %p.chat-group__message
+              - if user_group.messages.pluck(:body).present?
+                = user_group.messages.pluck(:body).last
+              - else
+                まだメッセージはありません

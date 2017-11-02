@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :group_find, only: [:edit, :update]
 
   def new
     @group = Group.new
@@ -15,7 +16,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def index
@@ -24,7 +24,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update_attributes(set_group_params)
       redirect_to root_path
     else
@@ -33,9 +32,13 @@ class GroupsController < ApplicationController
   end
   def show
   end
+
   private
 
   def set_group_params
     params.require(:group).permit(:name, user_ids:[])
+  end
+  def group_find
+    @group = Group.find(params[:id])
   end
 end

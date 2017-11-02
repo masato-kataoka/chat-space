@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   before_action :current_user_groups, only: [:create, :index, :new]
 
   def index
+    @messages = Message.where(group_id: params[:group_id])
   end
   def create
     @message = Message.new(set_message_params)
@@ -20,7 +21,6 @@ class MessagesController < ApplicationController
   def edit
   end
   def update
-    @message = Group.find(params[:id])
   end
   def show
   end
