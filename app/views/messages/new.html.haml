@@ -14,9 +14,13 @@
     %ul.chat-messages
       %li.chat-message
         .chat-message__header.clearfix
-          %p.chat-message__name テスト
-          %p.chat-message__time XXXX
-          %p.chat-message__body aaaa
+          - @messages.each do |message|
+            %p.chat-message__name
+              = message.user.name
+            %p.chat-message__time
+              = message.created_at
+            %p.chat-message__body
+              = message.body
 
   .chat-footer
     = form_for [@group, @message] do |f|
