@@ -57,6 +57,7 @@ group :development, :test do
   # For tech-master EXPERT
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'faker'
 end
 
 group :development do

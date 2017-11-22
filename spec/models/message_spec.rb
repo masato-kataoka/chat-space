@@ -1,8 +1,40 @@
 require 'rails_helper'
+
 describe '#create' do
-  it "is invalid without a message" do
-    message = Message.new(body: "", image: "", group_id: "", user_id: "")
-    body.valid?
-    expect(message.errors[:body]).to include("can't be blank")
+  it "メッセージがあれば保存できる" do
+    message = build(:message)
+    message.valid?
+    expect(message).to be_valid
   end
+
+  it "画像があれば保存できる" do
+    message = build(:message)
+    message.valid?
+    expect(message).to be_valid
+  end
+
+  it "メッセージと画像があれば保存できる" do
+    message = build(:message)
+    message.valid?
+    expect(message).to be_valid
+  end
+
+  it "メッセージも画像も無いと保存できない" do
+    message = build(:message, body: "", image: "")
+    message.valid?
+    expect(message).to be_valid
+  end
+
+  it "group_idが無いと保存できない" do
+    message = build(:message, group_id: "")
+    message.valid?
+    expect(message).to be_valid
+  end
+
+  it "user_idが無いと保存できない" do
+    message = build(:message, user_id: "")
+    message.valid?
+    expect(message).to be_valid
+  end
+
 end
