@@ -1,40 +1,31 @@
 require 'rails_helper'
 
-describe '#create' do
-  it "メッセージがあれば保存できる" do
-    message = build(:message)
-    message.valid?
-    expect(message).to be_valid
-  end
+RSpec.describe Message, type: :model do
+  describe '#create' do
+    context 'メッセージを保存できる場合' do
+      it 'メッセージがあれば保存できる' do
+        expect(build(:message, image: nil)).to be_valid
+      end
 
-  it "画像があれば保存できる" do
-    message = build(:message)
-    message.valid?
-    expect(message).to be_valid
-  end
+      it '画像があれば保存できる' do
+        expect(build(:message, body: nil)).to be_valid
+      end
 
-  it "メッセージと画像があれば保存できる" do
-    message = build(:message)
-    message.valid?
-    expect(message).to be_valid
-  end
+      it 'メッセージと画像があれば保存できる' do
+        expect(build(:message)).to be_valid
+      end
+    end
 
-  it "メッセージも画像も無いと保存できない" do
-    message = build(:message, body: "", image: "")
-    message.valid?
-    expect(message).to be_valid
+    context 'メッセージを保存できない場合' do
+      it 'メッセージも画像も無いと保存できない' do
+        message = build(:message, body: nil, image: nil)
+        message.valid?
+        expect(message.errors[:body]).to include('を入力してください')
+      end
+#      it 'group_idが無いと保存できない' do
+#      end
+#      it 'user_idが無いと保存できない' do
+#      end
+    end
   end
-
-  it "group_idが無いと保存できない" do
-    message = build(:message, group_id: "")
-    message.valid?
-    expect(message).to be_valid
-  end
-
-  it "user_idが無いと保存できない" do
-    message = build(:message, user_id: "")
-    message.valid?
-    expect(message).to be_valid
-  end
-
 end
