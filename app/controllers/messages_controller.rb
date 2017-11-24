@@ -2,9 +2,9 @@ class MessagesController < ApplicationController
   before_action :group_find
   before_action :new_message, only: [:index, :new]
   before_action :current_user_groups, only: [:create, :index, :new]
+  before_action :current_user_messages, only: [:create, :index, :new]
 
   def index
-    @messages = Message.where(group_id: params[:group_id])
   end
   def create
     @message = Message.new(set_message_params)
@@ -16,7 +16,6 @@ class MessagesController < ApplicationController
     end
   end
   def new
-    @messages = Message.where(group_id: params[:group_id])
   end
   def edit
   end
@@ -39,5 +38,7 @@ class MessagesController < ApplicationController
   def new_message
     @message = Message.new
   end
-
+  def current_user_messages
+    @messages = Message.where(group_id: params[:group_id])
+  end
 end
