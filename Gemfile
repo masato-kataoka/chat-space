@@ -55,8 +55,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   # For tech-master EXPERT
-  gem 'rspec-rails'
-  gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'rspec-rails', "~> 3.5"
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails', "~> 4.0"
   gem 'faker'
 end
 
