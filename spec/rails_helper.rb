@@ -26,8 +26,18 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+## For Tech EXPERT
+require 'devise'
+require File.expand_path("spec/support/controller_macros.rb")
+
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  # For Tech Expert
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+#  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
+  config.include Devise::TestHelpers, type: :controller
+#  config.extend ControllerMacros, type: :controller
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
