@@ -69,7 +69,7 @@ describe MessagesController do
           expect{ subject }.not_to change(Message, :count)
         end
 
-        it 'renders index' do
+        it 'renders new' do
           subject
           expect(response).to render_template :new
         end
