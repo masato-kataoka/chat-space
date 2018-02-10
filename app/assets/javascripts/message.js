@@ -1,4 +1,7 @@
 $(function() {
+  function buildHTML(message){
+    
+  }
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
@@ -12,8 +15,9 @@ $(function() {
     })
     .done(function(data) {
       $('.chat-body').append(data);
+        $('.')
       //  setTimeout(function() {
-          $('.chat-body').animate({scrollTop: $('.chat-message__header p:last-child').offset().top}, 'fast');
+        $('.chat-body').animate({scrollTop: $('.chat-message')[0].scrollHeight}, 'fast');
       //  }, 1500);
     })
     .fail(function() {
