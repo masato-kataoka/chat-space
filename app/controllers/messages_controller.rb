@@ -5,12 +5,16 @@ class MessagesController < ApplicationController
   before_action :current_user_messages, only: [:create, :index, :new]
 
   def index
+    @messages = @group.messages.includes(:user)
+  end
+  def new
+    @messages = @group.messages.includes(:user)
   end
   def create
-    @message = Message.new(set_message_params)
+    @message = @group.messages.new(set_message_params)
     if @message.save
       respond_to do |format|
-        format.html { redirect_to new_group_message_path }
+        format.html { redirect_to new_group_message_path(@group), notice: 'メッセージが送信されました' }
         format.json { render json: @message }
       end
     else
@@ -18,8 +22,6 @@ class MessagesController < ApplicationController
       flash.now[:alert] = 'メッセージを入力してください'
       render :new
     end
-  end
-  def new
   end
   def edit
   end
