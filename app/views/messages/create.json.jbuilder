@@ -1,6 +1,4 @@
-json.post do |json|
-  json.body @message.body
-  json.image @message.image
-  json.group @message.group
-  json.user @message.user
-end
+json.body       @message.body
+json.image_url  @message.image.url
+json.created_at @message.created_at
+json.user_name  @message.user.name
