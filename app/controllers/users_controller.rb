@@ -1,21 +1,21 @@
 class UsersController < ApplicationController
-  before_action :user_find
+#  before_action :user_find
 
   def edit
   end
 
   def update
-    if @user.update_attributes(set_user_params)
-      # 更新に成功したときの処理
+    if current_user.update(set_user_params)
+      redirect_to root_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
   private
 
   def set_user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email)
   end
 
   def user_find

@@ -51,9 +51,9 @@ describe MessagesController do
           expect{ subject }.to change(Message, :count).by(1)
         end
 
-        it 'redirects to new_group_messages_path' do
+        it 'redirects to new_group_message_path' do
           subject
-          expect(response).to redirect_to(new_group_messages_path(group))
+          expect(response).to redirect_to(new_group_message_path(group))
         end
       end
 
