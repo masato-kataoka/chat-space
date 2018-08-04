@@ -11,13 +11,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+#    @users = User.all
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def set_user_params
     params.require(:user).permit(:name, :email)
   end
 
-  def user_find
-    @user = User.find(params[:id])
-  end
+#  def user_find
+#    @user = User.find(params[:id])
+#  end
 end
