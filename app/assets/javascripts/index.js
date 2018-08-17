@@ -41,7 +41,7 @@ $(function() {
     })
     .done(function(users) {
       $('#user-search-result').empty();
-      if (users.length !== 0) {
+      if (users.length !== 0 && inputs.length !== 0) {
         users.forEach(function(user){
           appendUser(user);
         });
@@ -56,13 +56,13 @@ $(function() {
   });
 
   $('#user-search-result').on('click', '.user-search-add', function() {
-    var user_id = $(this).attr('data-user-id');
-    var user_name = $(this).attr('data-user-name');
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
     appendMember(user_id, user_name);
     $(this).parent().remove();
   });
 
-  $('#chat-group-users').on('click', '.user-search-remove', function() {
+  $('#chat-group-users').on('click', '.js-remove-btn', function() {
     $(this).parent().remove();
   });
 });
