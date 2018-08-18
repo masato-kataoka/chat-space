@@ -19,8 +19,6 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @message = Message.new
-    @groups = current_user.groups
   end
 
   def update
@@ -30,13 +28,14 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
+
   def show
   end
 
   private
 
   def set_group_params
-    params.require(:group).permit(:name, { :user_ids => [] })
+    params.require(:group).permit(:name, user_ids: [])
   end
   def group_find
     @group = Group.find(params[:id])

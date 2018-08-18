@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:email]
+
   has_many :user_group
   has_many :groups, through: :user_group
-
   has_many :messages
 end
