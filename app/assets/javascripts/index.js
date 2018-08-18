@@ -11,10 +11,10 @@ $(function() {
     search_list.append(html)
   }
 
-  function appendNoUser(user) {
+  function appendNoUser() {
     var html = `
       <div class='chat-group-user clearfix'>
-        ${user}
+      一致するユーザーはいません
       </div>
     `;
     search_list.append(html);
@@ -33,26 +33,34 @@ $(function() {
 
   $('#user_search_field').on('keyup', function() {
     var inputs = $('#user_search_field').val();
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: inputs },
-      dataType: 'json'
-    })
-    .done(function(users) {
+
+    if (inputs.length == 0) {
       $('#user-search-result').empty();
-      if (users.length !== 0 && inputs.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        appendNoUser('一致するユーザーはいません');
-      }
-    })
-    .fail(function() {
-      alert('ユーザー検索に失敗しました');
-    })
+      appendNoUser();
+    }
+    else {
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: inputs },
+        dataType: 'json'
+      })
+      .done(function(users) {
+        $('#user-search-result').empty();
+
+        if (users.length !== 0) {
+          users.forEach(function(user){
+            appendUser(user);
+          });
+        }
+        else {
+          appendNoUser();
+        }
+      })
+      .fail(function() {
+        alert('ユーザー検索に失敗しました');
+      })
+    }
   });
 
   $('#user-search-result').on('click', '.user-search-add', function() {
