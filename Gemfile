@@ -42,6 +42,9 @@ gem 'devise-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# For jquery
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -61,7 +64,6 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-unicorn'
   gem 'capistrano3-unicorn'
 end
 
