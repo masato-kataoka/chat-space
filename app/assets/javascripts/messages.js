@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message){
     var image = message.image_url ? `<img src='${message.image_url}'>`:"";
-    var html = `<div class='message'>
+    var html = `<div class='message' data-message-id="${message.id}">
                   <div class='upper-message'>
                     <div class='upper-message__user-name'>
                       ${message.user_name}
@@ -13,13 +13,12 @@ $(function() {
                   <div class='lower-message'>
                     <p class='lower-message__content'>
                       ${message.body}<br>
-                      ${image}
                     </p>
+                    ${image}
                   </div>
                 </div>`
     return html;
   }
-
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -37,12 +36,38 @@ $(function() {
       $('.messages').append(html)
       $('.form__message').val('');
       $('.hidden').val('');
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight }, 'fast');
-      $('[name=commit]').prop('disabled',false);
+      $('.form__submit').prop('disabled', false);
+      $('html,body').animate({ scrollTop: $(document).height() }, 'fast');
     })
     .fail(function() {
       alert('書込みに失敗しました。再度書込みしてください。');
-      $('[name=commit]').prop('disabled',false);
-    })
+    });
   });
+
+  $(function () {
+    setInterval(update, 5000);
+  });
+
+  function update() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        dataType: 'json'
+      })
+      .always(function (data) {
+        var last_id = $('.message:last').data('message-id') || 0;
+        var insertHTML = '';
+        data.messages.forEach(function(message){
+          if (message.id > last_id) {
+            insertHTML += buildHTML(message);
+          }
+        });
+        $('.messages').append(insertHTML);
+        $('html,body').animate({ scrollTop: $(document).height() }, 'fast');
+      });
+    } else {
+      clearInterval(setInterval);
+    }
+  };
 });
