@@ -54,19 +54,18 @@ $(function() {
   });
 
   function update() {
+    var last_id = $('.message:last').data('message-id') || 0;
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       $.ajax({
         type: 'GET',
         url: location.href,
+        data: { message: { id: last_id }},
         dataType: 'json'
       })
       .always(function (data) {
-        var last_id = $('.message:last').data('message-id') || 0;
         var insertHTML = '';
-        data.messages.forEach(function(message){
-          if (message.id > last_id) {
-            insertHTML += buildHTML(message);
-          }
+        data.forEach(function (message) {
+          insertHTML += buildHTML(message);
         });
         scrollBottom(insertHTML);
       });
