@@ -45,7 +45,7 @@ $(function() {
   });
 
   $(function () {
-    setInterval(update, 5000);
+    setInterval(update, 3000);
   });
 
   function update() {
