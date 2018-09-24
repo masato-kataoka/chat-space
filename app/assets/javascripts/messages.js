@@ -58,7 +58,6 @@ $(function() {
       $.ajax({
         type: 'GET',
         url: location.href,
-        // data: { message: {id: last_id} },
         dataType: 'json'
       })
       .always(function (data) {
