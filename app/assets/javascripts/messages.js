@@ -19,6 +19,12 @@ $(function() {
                 </div>`
     return html;
   }
+
+  function scrollchat(html) {
+    $('.messages').append(html);
+    $('html,body').animate({ scrollTop: $(document).height() }, 'fast');
+  };
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -33,11 +39,10 @@ $(function() {
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.messages').append(html)
       $('.form__message').val('');
       $('.hidden').val('');
       $('.form__submit').prop('disabled', false);
-      $('html,body').animate({ scrollTop: $(document).height() }, 'fast');
+      scrollchat(html)
     })
     .fail(function() {
       alert('書込みに失敗しました。再度書込みしてください。');
@@ -63,8 +68,7 @@ $(function() {
             insertHTML += buildHTML(message);
           }
         });
-        $('.messages').append(insertHTML);
-        $('html,body').animate({ scrollTop: $(document).height() }, 'fast');
+        scrollchat(insertHTML)
       });
     } else {
       clearInterval(setInterval);
