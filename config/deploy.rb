@@ -28,8 +28,8 @@ set :repo_url, "git@github.com:masato-kataoka/chat-space.git"
 
 # Default value for default_env is {}
 set :default_env, {
-  rbenv_root: "/home/ec2-user/.rbenv",
-  path: "/home/ec2-user/.rbenv/shims:/home/ec2-user/.rbenv/bin:$PATH",
+  rbenv_root: "/user/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
