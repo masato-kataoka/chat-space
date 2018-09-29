@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'chatspace-kata'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sapmle_app'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chatspace-kata'
 end
