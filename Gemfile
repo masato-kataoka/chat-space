@@ -50,7 +50,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # For json format Log
 gem 'lograge'
-
+gem 'logstash-event'
 
 group :development, :test do
   gem "pry-rails"
