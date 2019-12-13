@@ -48,6 +48,10 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# For json format Log
+gem 'lograge'
+
+
 group :development, :test do
   gem "pry-rails"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
