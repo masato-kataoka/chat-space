@@ -92,4 +92,6 @@ Rails.application.configure do
 
   # For JSON logs
   config.lograge.enabled = true
+  path = '#{Rails.root}/shared/log/#{Rails.env}.log'
+  config.lograge.logger = ActiveSupport::Logger.new path
 end
