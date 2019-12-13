@@ -20,6 +20,8 @@ Rails.application.configure do
       {
         request_id: controller.request.request_id,
         user_id: controller.try(:current_user).try(:id), # 例) 確定してるなら&.のほうが良い
+        host: controller.request.host,
+        remote_ip: controller.request.remote_ip,
         params: params
       }
     end
@@ -27,7 +29,10 @@ Rails.application.configure do
     # 独自パラメータを設定 (ActiveSupport::Notifications::Event name='process_action.action_controller' が落ちてくる)
     config.lograge.custom_options = lambda do |event|
       ret = {
-        request_ip: event.payload[:request_ip],
+        time: event.time,
+        host: event.payload[:host],
+        remote_ip: event.payload[:remote_ip],
+#        request_ip: event.payload[:remote_ip],
         error_message: nil,
         error_stacktrace: nil
       }
